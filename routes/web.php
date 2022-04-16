@@ -13,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+}); */
+
+Route::get('/', function () {
+    return view('books/index');
+});
+
+Route::get('/products', function () {
+    return view('books/products');
 });
 
 Route::middleware([
@@ -23,6 +31,6 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('books/index');
     })->name('dashboard');
 });
