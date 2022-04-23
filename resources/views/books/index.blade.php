@@ -132,6 +132,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         </div>
         <!-- ***** Preloader End ***** -->
 
+        <!-- Header -->
         @if(Auth::guest())
             <x-header-layout> 
                 <x-slot name="items">
@@ -213,6 +214,55 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>
         </div>
         <!-- Banner Ends Here -->
+
+        
+        {{-- Test del index --}}
+
+        <div class="card-content">                   
+            <!-- table striped -->
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Editorial</th>
+                            <th>ISBN</th>
+                            <th>Páginas</th>
+                            <th>Fecha de publicación</th>
+                            <th>Acción</th>
+                            <th>Vendedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>                                                                                                  
+                        @foreach ($books as $book)
+                            <tr>                                    
+                                <td>{{ $book->titulo }}</td>
+                                <td>{{ $book->autor }}</td>
+                                <td>{{ $book->editorial }}</td>
+                                <td>{{ $book->isbn }}</td>
+                                <td>{{ $book->paginas }}</td>  
+                                <td>{{ $book->fecha }}</td>
+                                <td>{{ $book->user->name}}</td>
+                                <td>
+                                  <a href="/book/{{ $book->id }}/edit" class="btn btn-info">Editar</a>
+                                  {{-- <form action="/libro/{{ $libro->id }}" method="POST" class="form form-horizontal">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Eliminar" class="btn btn-danger">                                             
+                                  </form> --}} 
+                                </td>
+                            </tr>                                                
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="/book/create" class="btn btn-info">Agregar</a>
+
+        {{-- Fin del test index --}}
+
 
         <div class="latest-products">
             <div class="container">

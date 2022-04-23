@@ -116,7 +116,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>
 
     
-    <div class="products">
+    {{-- <div class="products">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -254,8 +254,67 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2 style="color: red">All Products</h2>              
+            </div>
+          </div>
+          @foreach ($books as $book)                                                                     
+            <div class="col-md-4">
+              <div class="product-item">
+                <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
+                <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
+                <div class="down-content">
+                  <a href="#"><h4>{{$book->titulo}}</h4></a>
+                  <h6>${{$book->precio}}</h6>
+                  <p>{{$book->autor}}</p>
+                  <p>{{$book->editorial}}</p>
+                  <p>{{$book->isbn}}</p>
+                  <ul class="stars">
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                  </ul>
+                  <span>Reviews (12)</span>
+                </div>
+              </div>              
+            </div>
+          @endforeach
+      </div>
+  </div>
+    
+    
+    
+    
+    
+    {{-- <div class="product-item">
+      @foreach ($books as $book)                                                                     
+        <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
+        <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
+        <div class="down-content">
+          <a href="#"><h4>{{$book->titulo}}</h4></a>
+          <h6>${{$book->precio}}</h6>
+          <p>{{$book->autor}}</p>
+          <p>{{$book->editorial}}</p>
+          <p>{{$book->isbn}}</p>
+          <ul class="stars">
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+          </ul>
+          <span>Reviews (12)</span>
+        </div>
+      @endforeach
+    </div>  --}}    
     
     <footer>
       <div class="container">

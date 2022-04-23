@@ -45,7 +45,7 @@
                             <div class="py-0">
                                 @auth
                                     <a
-                                        href="{{ url('/dashboard') }}"
+                                        href="{{ url('/myproducts') }}"
                                         class="nav-link btn btn-secondary"
                                         >My products</a
                                     >

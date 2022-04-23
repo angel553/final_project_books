@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,20 +18,36 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 }); */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('books/index');
-});
+}); */
 
-Route::get('/products', function () {
+/* Route::get('/products', function () {
     return view('books/products');
+}); */
+
+Route::middleware(['auth'])->group(function () {    
+    Route::resource('/book', BookController::class);        
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::get('/', [BookController::class, 'index']);
+
+Route::get('/products', [BookController::class, 'showBooks']);
+
+Route::get('/myproducts', [BookController::class, 'showMyBooks']);
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::get('/dashboard', [BookController::class, 'index'])->name('dashboard');
+});
+
+
+/* Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('books/index');
     })->name('dashboard');
+}); */
+
+/* Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::get('/dashboard', [BookController::class, 'index'])->name('dashboard');
 });
+ */
