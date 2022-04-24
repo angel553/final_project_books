@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();        
-        return view('books.index', compact('books'));
+        $books = Book::all();
+        $tags = Tag::all();        
+        return view('books.index', compact('books','tags'));
     }
 
     /**
@@ -26,7 +28,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.createBook');
+        $tags = Tag::all();
+        return view('books.createBook', compact('tags'));
     }
 
     /**
@@ -46,6 +49,7 @@ class BookController extends Controller
             'fecha' => 'required',
             'paginas' => ['required', 'min:1', 'max:9999'],
             'precio' => ['required', 'min:1', 'max:9999'],
+            'etiqueta_id' => ['required'],
         ]);
         
         //dd($request);
@@ -61,7 +65,11 @@ class BookController extends Controller
         $book->fecha = $request->fecha;
         $book->precio = $request->precio;
 
+        //dd($book);
+        
         $book->save();
+
+        $book->tags()->attach($request->etiqueta_id);
 
         return redirect('/');
     }
@@ -85,7 +93,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.createBook', compact('book'));
+        $tags = Tag::all();
+        return view('books.createBook', compact('book','tags'));
     }
 
     /**
@@ -106,6 +115,7 @@ class BookController extends Controller
             'fecha' => 'required',
             'paginas' => ['required', 'min:1', 'max:9999'],
             'precio' => ['required', 'min:1', 'max:9999'],
+            'etiqueta_id' => ['required'],
         ]);
         
         $book->user_id = Auth::user()->id;
@@ -117,7 +127,10 @@ class BookController extends Controller
         $book->fecha = $request->fecha;
         $book->precio = $request->precio;
 
-        $book->save();                
+        $book->save();     
+        
+        $book->tags()->sync($request->etiqueta_id);
+
         return redirect('/');
         //return redirect('/libro/' . $libro->id);
     }

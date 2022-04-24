@@ -196,6 +196,25 @@ https://templatemo.com/tm-546-sixteen-clothing
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                   </div>
+                                  <div class="col-md-4">
+                                    <label>Etiqueta</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                      <select name="etiqueta_id[]" multiple>                                        
+                                        @foreach ($tags as $tag)
+                                            <option value="{{ $tag->id }}" {{ isset($book) && array_search($tag->id, $book->tags->pluck('id')->toArray()) !== false ? ' selected' : '' }}>{{ $tag->tag}} </option>
+                                        @endforeach
+                                        @error('etiqueta_id')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                      </select>                                    
+                                  </div>
+                                  {{-- <div class="col-md-4">
+                                    <label>Image</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                    <input type="image" name="" id="">                                    
+                                  </div> --}}
                                   {{-- <div class="col-12 col-md-8 offset-md-4 form-group">
                                   <div class="input-group mb-3">
                                       <select class="form-select" id="inputGroupSelect01">

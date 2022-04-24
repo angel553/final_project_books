@@ -232,6 +232,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                             <th>Fecha de publicación</th>
                             <th>Acción</th>
                             <th>Vendedor</th>
+                            <th>Etiquetas</th>
                         </tr>
                     </thead>
                     <tbody>                                                                                                  
@@ -251,6 +252,11 @@ https://templatemo.com/tm-546-sixteen-clothing
                                     @method('DELETE')
                                     <input type="submit" value="Eliminar" class="btn btn-danger">                                             
                                   </form> --}} 
+                                </td>
+                                <td> 
+                                    @foreach ($book->tags as $tag)                                        
+                                        {{ $tag->tag }} <br> 
+                                    @endforeach
                                 </td>
                             </tr>                                                
                         @endforeach
