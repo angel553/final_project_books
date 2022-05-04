@@ -87,7 +87,7 @@ class BookController extends Controller
 
         $book->tags()->attach($request->etiqueta_id);
 
-        return redirect('/');
+        return redirect('/products');
     }
 
     /**

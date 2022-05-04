@@ -114,26 +114,40 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="filters-content">
                                                                                    
                 <div class="row grid">
-                  <div class="col-lg-10 col-md-2 all des"> {{-- col-lg-8 --}}
-                    <div class="product-item" style="margin-left: 30%"> {{-- 50% --}}
-                      <a href="#"><img src="/assets/images/product_01.jpg" alt=""></a>
-                      <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
-                      <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>
+                  <div class="col-lg-8 col-md-2 all des"> {{-- col-lg-8 --}}
+                    <div class="product-item" style="margin-left: 50%"> {{-- 50% --}}
+                      <a href="#"><img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{Storage::url($book->route_image)}}" alt="Imagen del producto" style="height: 400px;width: 300px"></a>
+                      {{-- <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a> --}}
                       <div class="down-content">
-                        <a href="#"><h4>{{$book->titulo}}</h4></a>
-                        <h6>${{$book->precio}}</h6>
-                        <p>{{$book->autor}}</p>
-                        <p>{{$book->editorial}}</p>
-                        <p>{{$book->isbn}}</p>
-                        <p>{{$book->fecha}}</p>
-                        <ul class="stars">
+                        <a href="#"></a>
+                        <h4><b>{{$book->titulo}}</b></h4>
+                        <h6><strong>${{$book->precio}}</strong></h6>
+                        <p><b>Autor: </b>{{$book->autor}}</p>
+                        <p><b>Editorial: </b>{{$book->editorial}}</p>
+                        <p><b>ISBN: </b>{{$book->isbn}}</p>
+                        <p><b>Páginas: </b>{{$book->paginas}}</p>
+                        <p><b>Fecha: </b>{{$book->fecha}}</p>
+                        <p><b>Disponibilidad: </b>@foreach ($book->tags as $tag)                                        
+                          {{ $tag->tag }} <br> 
+                          @endforeach
+                        </p>
+                        <p><b>Vendedor: </b>{{$book->user->name}}</p>
+                        @foreach ($book->tags as $tag)                                                                  
+                          @if ($tag->tag == "Venta" || $tag->tag == "Intercambio")
+                            <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                            
+                          @else
+                            <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
+                          @endif
+                        @endforeach                                               
+                                                                    
+                        {{-- <ul class="stars">
                           <li><i class="fa fa-star"></i></li>
                           <li><i class="fa fa-star"></i></li>
                           <li><i class="fa fa-star"></i></li>
                           <li><i class="fa fa-star"></i></li>
                           <li><i class="fa fa-star"></i></li>
                         </ul>
-                        <span>Reviews (12)</span>
+                        <span>Reviews (12)</span> --}}
                       </div>
                     </div>
                   </div>                   
@@ -154,19 +168,8 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
     
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-            
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <x-footer-layout>
+    </x-footer-layout>
 
 
     <!-- Bootstrap core JavaScript -->

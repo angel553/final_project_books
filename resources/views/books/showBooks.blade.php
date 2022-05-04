@@ -270,22 +270,22 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="col-md-4">
               <div class="product-item">
                 {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                
-                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid" style="width:370;height:400px"></a>
-                <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
+                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid rounded mx-auto d-block" style="height:400px;width: 300px;"></a>                
                 <div class="down-content">
                   <a href="#"><h4>{{$book->titulo}}</h4></a>
                   <h6>${{$book->precio}}</h6>
                   <p>{{$book->autor}}</p>
                   <p>{{$book->editorial}}</p>
-                  <p>{{$book->isbn}}</p>
-                  <ul class="stars">
+                  
+                  <a href="/book/{{$book->id}}" class="btn btn-secondary">Obtener detalles</a>
+                  {{-- <ul class="stars">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
                   </ul>
-                  <span>Reviews (12)</span>
+                  <span>Reviews (12)</span> --}}                                    
                 </div>
               </div>              
             </div>
