@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing Products</title>
+    <title>Buscabucky</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,59 +37,60 @@ https://templatemo.com/tm-546-sixteen-clothing
   <body>
 
     
+    <!-- Header -->
     @if(Auth::guest())
       <x-header-layout> 
-        <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>                    
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
-          </li>
-        </x-slot> 
+          <x-slot name="items">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/"
+                      >Inicio
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>                    
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/products') }}"
+                      >Productos</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html"
+                      >Sobre nosotros</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html"
+                      >Contactanos</a
+                  >
+              </li>
+          </x-slot> 
       </x-header-layout>      
-    @else  
+    @else   
       <x-header-layout> 
-        <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>                    
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
-          </li>
-        </x-slot> 
-        @livewire('navigation-menu')
-      </x-header-layout>       
+          <x-slot name="items">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/"
+                      >Inicio
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>                    
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/products') }}"
+                      >Productos</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html"
+                      >Sobre Nosotros</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html"
+                      >Contactanos</a
+                  >
+              </li>
+          </x-slot> 
+          @livewire('navigation-menu')
+      </x-header-layout>      
     @endif
 
     <!-- Page Content -->

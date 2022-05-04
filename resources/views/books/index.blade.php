@@ -13,7 +13,8 @@
             rel="stylesheet"
         />
 
-        <title>Sixteen Clothing HTML Template</title>
+        {{-- <title>Sixteen Clothing HTML Template</title> --}}
+        <title>Buscabucky</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -28,7 +29,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css" />
         <link rel="stylesheet" href="assets/css/templatemo-sixteen.css" />
-        <link rel="stylesheet" href="assets/css/owl.css" />
+        <link rel="stylesheet" href="assets/css/owl.css" />        
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">        
@@ -138,23 +139,23 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <x-slot name="items">
                     <li class="nav-item active">
                         <a class="nav-link" href="/"
-                            >Home
+                            >Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/products') }}"
-                            >Our Products</a
+                            >Productos</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html"
-                            >About Us</a
+                            >Sobre nosotros</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html"
-                            >Contact Us</a
+                            >Contáctanos</a
                         >
                     </li>
                 </x-slot> 
@@ -164,23 +165,23 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <x-slot name="items">
                     <li class="nav-item active">
                         <a class="nav-link" href="/"
-                            >Home
+                            >Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/products') }}"
-                            >Our Products</a
+                            >Productos</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html"
-                            >About Us</a
+                            >Sobre Nosotros</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html"
-                            >Contact Us</a
+                            >Contáctanos</a
                         >
                     </li>
                 </x-slot> 
@@ -195,8 +196,8 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="owl-banner owl-carousel">
                 <div class="banner-item-01">
                     <div class="text-content">
-                        <h4>Best Offer</h4>
-                        <h2>New Arrivals On Sale</h2>
+                        <h4>Las mejores ofertas</h4>
+                        <h2>Los mejores libros</h2>
                     </div>
                 </div>
                 <div class="banner-item-02">
@@ -215,7 +216,6 @@ https://templatemo.com/tm-546-sixteen-clothing
         </div>
         <!-- Banner Ends Here -->
 
-        
         {{-- Test del index --}}
 
         <div class="card-content">                   
@@ -233,6 +233,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                             <th>Acción</th>
                             <th>Vendedor</th>
                             <th>Etiquetas</th>
+                            <th>Archivo</th>                            
                         </tr>
                     </thead>
                     <tbody>                                                                                                  
@@ -244,7 +245,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                 <td>{{ $book->isbn }}</td>
                                 <td>{{ $book->paginas }}</td>  
                                 <td>{{ $book->fecha }}</td>
-                                <td>{{ $book->user->name}}</td>
+                                <td>{{ $book->user->name}}</td>                                
                                 <td>
                                   <a href="/book/{{ $book->id }}/edit" class="btn btn-info">Editar</a>
                                   {{-- <form action="/libro/{{ $libro->id }}" method="POST" class="form form-horizontal">
@@ -258,14 +259,15 @@ https://templatemo.com/tm-546-sixteen-clothing
                                         {{ $tag->tag }} <br> 
                                     @endforeach
                                 </td>
-                            </tr>                                                
+                                <td>{{$book->route_image}}</td>
+                            </tr>                                                                          
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <a href="/book/create" class="btn btn-info">Agregar</a>
+        <a href="/book/create" class="btn btn-info">Agregar</a>        
 
         {{-- Fin del test index --}}
 
@@ -275,9 +277,9 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h2>Latest Products</h2>
-                            <a href="products.html"
-                                >view all products
+                            <h2>Últimos productos</h2>
+                            <a href="{{ url('/products') }}"
+                                >Ver todos los productos
                                 <i class="fa fa-angle-right"></i
                             ></a>
                         </div>
@@ -424,17 +426,17 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>
         </div>
 
-        <div class="best-features">
+        {{-- <div class="best-features">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h2>About Sixteen Clothing</h2>
+                            <h2>Sobre Buscabucky</h2>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="left-content">
-                            <h4>Looking for the best products?</h4>
+                            <h4>Buscando libros económicos?</h4>
                             <p>
                                 <a
                                     rel="nofollow"
@@ -486,7 +488,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="call-to-action">
             <div class="container">
@@ -517,26 +519,8 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>
         </div>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>
-                                Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-                                - Design:
-                                <a
-                                    rel="nofollow noopener"
-                                    href="https://templatemo.com"
-                                    target="_blank"
-                                    >TemplateMo</a
-                                >
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <x-footer-layout>
+        </x-footer-layout>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Book;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -50,9 +51,8 @@ class BookController extends Controller
             'paginas' => ['required', 'min:1', 'max:9999'],
             'precio' => ['required', 'min:1', 'max:9999'],
             'etiqueta_id' => ['required'],
-        ]);
-        
-        //dd($request);
+            'archivo' => ['required'],
+        ]);                
         
         $book = new Book();
         
@@ -64,8 +64,24 @@ class BookController extends Controller
         $book->paginas = $request->paginas;
         $book->fecha = $request->fecha;
         $book->precio = $request->precio;
+        
+        //dd($request);
 
-        //dd($book);
+        if($request->hasFile('archivo') && $request->file('archivo')->isValid()) {            
+            //$ruta = $request->archivo->store('images');
+            
+            $ruta = $request->archivo->store('public/images');
+            /* $ruta = $request->archivo->storeAs(
+                'public/images', $request->archivo->getClientOriginalName()
+            );  */                   
+
+            $book->book_image = $request->archivo->getClientOriginalName();
+            $book->route_image = $ruta;
+            /* $archivo->ruta = $ruta;
+            $archivo->mime = $request->archivo->getMimetype();
+            dd($archivo);
+            $archivo->save(); */
+        }                            
         
         $book->save();
 
@@ -116,8 +132,27 @@ class BookController extends Controller
             'paginas' => ['required', 'min:1', 'max:9999'],
             'precio' => ['required', 'min:1', 'max:9999'],
             'etiqueta_id' => ['required'],
+            'archivo' => ['required'],
         ]);
-        
+                
+        if($request->hasFile('archivo') && $request->file('archivo')->isValid()) {                        
+            //unlink(storage_path($book->route_image));                        
+
+            /* $path=$request->file('avatar')->storeAs(
+                'avatars', $request->user()->id
+            ); */
+            
+            Storage::delete($book->book_image);
+            
+            $ruta = $request->archivo->store('public/images');            
+            /* $ruta = $request->archivo->storeAs(
+                'public/images', $request->archivo->getClientOriginalName()
+            ); */
+            
+            $book->book_image = $request->archivo->getClientOriginalName();
+            $book->route_image = $ruta;            
+        }
+                
         $book->user_id = Auth::user()->id;
         $book->titulo = $request->titulo;        
         $book->autor = $request->autor;
@@ -143,7 +178,14 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        $url = str_replace('storage','public',$book->route_image);
+        //dd($url);
+        Storage::delete($url);        
+
+        //dd($book->book_image);
+
         $book->delete();
+
         return redirect('/');
     }
 
@@ -165,7 +207,8 @@ class BookController extends Controller
      */
     public function showMyBooks()
     {        
-        $books = Auth::user()->books;                
+        $books = Auth::user()->books; 
+        $tags = Tag::all();                 
         //dd($books);
         return view('books.showMyBooks', compact('books'));
     }

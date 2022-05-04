@@ -69,23 +69,23 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" href="/"
-                                    >Home
+                                    >Inicio
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="products.html"
-                                    >Our Products</a
+                                <a class="nav-link" href="{{ url('/products') }}"
+                                    >Productos</a
                                 >
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html"
-                                    >About Us</a
+                                    >Sobre Nosotros</a
                                 >
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html"
-                                    >Contact Us</a
+                                    >Contáctanos</a
                                 >
                             </li>
                             <li class="nav-item">

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('paginas');
             $table->date('fecha');
             $table->integer('precio');
+            $table->string('book_image');
+            $table->string('route_image');
             $table->timestamps();
         });
     }

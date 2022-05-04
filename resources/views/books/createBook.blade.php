@@ -13,7 +13,7 @@
             rel="stylesheet"
         />
 
-        <title>Sixteen Clothing HTML Template</title>
+        <title>Buscabucky</title>
 
         <!-- Bootstrap core CSS -->
         <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,23 +54,23 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <x-slot name="items">
                     <li class="nav-item active">
                         <a class="nav-link" href="/"
-                            >Home
+                            >Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/products') }}"
-                            >Our Products</a
+                            >Productos</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html"
-                            >About Us</a
+                            >Sobre nosotros</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html"
-                            >Contact Us</a
+                            >Contáctanos</a
                         >
                     </li>
                 </x-slot> 
@@ -80,23 +80,23 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <x-slot name="items">
                     <li class="nav-item active">
                         <a class="nav-link" href="/"
-                            >Home
+                            >Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/products') }}"
-                            >Our Products</a
+                            >Productos</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html"
-                            >About Us</a
+                            >Sobre Nosotros</a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html"
-                            >Contact Us</a
+                            >Contáctanos</a
                         >
                     </li>
                 </x-slot> 
@@ -117,10 +117,10 @@ https://templatemo.com/tm-546-sixteen-clothing
               <div class="card-content">
                   <div class="card-body"> 
                       @isset($book)
-                          <form class="form form-horizontal" action="/book/{{ $book->id }}" method="POST"> {{-- update --}}                                                            
+                          <form class="form form-horizontal" action="/book/{{ $book->id }}" method="POST" enctype="multipart/form-data"> {{-- update --}}                                                            
                               @method('PATCH')                                    
                       @else
-                          <form class="form form-horizontal" action="/book" method="POST">                            
+                          <form class="form form-horizontal" action="/book" method="POST" enctype="multipart/form-data">                            
                       @endisset                           
                       {{-- <form class="form form-horizontal" action="/libro" method="POST"> --}}
                           @csrf
@@ -209,6 +209,32 @@ https://templatemo.com/tm-546-sixteen-clothing
                                         @enderror
                                       </select>                                    
                                   </div>
+
+                                  @isset($book)
+                                    <div class="col-md-6">
+                                        <label>Imagen Actual</label>                                        
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid" style="width:250px;height:250px">
+                                        <br>
+                                        <span>Nombre de la imagen: </span> {{$book->book_image}}
+                                    </div>
+                                  @else
+                                     
+                                  @endisset
+
+                                  <div class="col-md-4">
+                                    <label>Cargar Imagen</label>
+                                  </div>
+                                  
+                                  <div class="col-md-4 form-group">
+                                    {{isset($book) ? Storage::url($book->route_image) : 'AAA'}}
+                                    <input type="file" accept="image/*" id="archivo" class="form-control" name="archivo" value="{{ isset($book) ? Storage::url($book->route_image) : '' }}{{ old('archivo') }}">                                                                                                                        
+                                    @error('archivo')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                  </div>                                  
+
                                   {{-- <div class="col-md-4">
                                     <label>Image</label>
                                   </div>
@@ -239,7 +265,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                       @else
                                           <button type="reset" class="btn btn-light-secondary me-1 mb-1">Limpiar</button>
                                       @endisset
-                                      <button type="submit" class="btn btn-primary me-1 mb-1">Guardar</button>
+                                      <button type="submit" class="btn btn-primary me-1 mb-1" style="background-color: #007bff;">Guardar</button>
                                       
                                       {{-- <form action="/book/{{ $book->id }}" method="POST" class="form form-horizontal">
                                         @csrf

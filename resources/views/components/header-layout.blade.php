@@ -2,8 +2,8 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html"
-                ><h2>Sixteen <em>Clothing</em></h2></a
+            <a class="navbar-brand" href="{{ url('/') }}"
+                ><h2>Busca <em>Bucky</em></h2></a
             >
             <button
                 class="navbar-toggler"
@@ -47,7 +47,7 @@
                                     <a
                                         href="{{ url('/myproducts') }}"
                                         class="nav-link btn btn-secondary"
-                                        >My products</a
+                                        >Mis productos</a
                                     >
                                 @else
                                     <a

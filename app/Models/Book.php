@@ -9,6 +9,9 @@ class Book extends Model
 {
     use HasFactory;
 
+    //protected $fillable = ['nombre_original', 'ruta', 'mime'];
+    protected $fillable = ['book_image'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -17,5 +20,5 @@ class Book extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
-    }
+    }    
 }

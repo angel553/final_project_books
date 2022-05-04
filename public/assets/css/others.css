@@ -1,0 +1,14 @@
+.products-heading2 {
+    background-image: url(../images/products-heading_oscura.jpg);
+    opacity: 0.96;
+}
+
+.page-heading_ {
+    font-weight: 600;
+    padding: 150px 0px 50px 0px;
+    text-align: center;
+    font-size: 30px;
+    /* background-position: center center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}

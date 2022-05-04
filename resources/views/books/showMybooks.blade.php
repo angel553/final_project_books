@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing Products</title>
+    <title>Buscabucky</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/others.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">        
@@ -46,130 +47,161 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>  
     <!-- ***** Preloader End ***** -->
 
+    <!-- Header -->
     @if(Auth::guest())
       <x-header-layout> 
         <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item active">
+              <a class="nav-link" href="/"
+                  >Inicio
+                  <span class="sr-only">(current)</span>
+              </a>
           </li>                    
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
+              <a class="nav-link" href="{{ url('/products') }}"
+                  >Productos</a
+              >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
+              <a class="nav-link" href="about.html"
+                  >Sobre nosotros</a
+              >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
+              <a class="nav-link" href="contact.html"
+                  >Contáctanos</a
+              >
           </li>
         </x-slot> 
       </x-header-layout>      
-    @else  
+    @else   
       <x-header-layout> 
         <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link active" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>                    
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
-          </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/"
+                    >Inicio
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>                    
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/products') }}"
+                    >Productos</a
+                >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html"
+                    >Sobre Nosotros</a
+                >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html"
+                    >Contáctanos</a
+                >
+            </li>
         </x-slot> 
         @livewire('navigation-menu')
-      </x-header-layout>       
+      </x-header-layout>      
     @endif
-
-    <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h4>new arrivals</h4>
-              <h2>sixteen products</h2>
+    
+    <div class="page-heading_">
+      <div class="page-content">
+        <h2 style="color: red">Todos las publicaciones</h2>
+      </div>
+    </div>    
+  <div class="page-content">      
+      {{-- TABLA --}}
+      <section class="section">
+        <div class="row py-8">
+            {{-- <div class="col-auto col-lg-5 ">
+            </div>  --}}                                                                                
+            <div class="col-auto col-lg-5">
+            </div>             
+            <div class=" px-8">                                           
+                <div class="card">
+                    <div class="card-body px-6 py-2-8 ">
+                        <a href="/book/create">
+                            {{-- <span class="glyphicon glyphicon-search"></span> --}}
+                            <h6 class="font-extrabold  btn btn-primary ">Agregar Nueva Publicación</h6>
+                        </a>                        
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-
-    
-    <div class="card-content">                   
-      <!-- table striped -->
-      <div class="table-responsive">
-          <table class="table table-striped mb-0">
-              <thead>
-                  <tr>
-                      <th>Título</th>
-                      <th>Autor</th>
-                      <th>Editorial</th>
-                      <th>ISBN</th>
-                      <th>Páginas</th>
-                      <th>Fecha de publicación</th>
-                      <th>Acción</th>
-                      <th>Vendedor</th>
-                  </tr>
-              </thead>
-              <tbody>                                                                                                             
-                  @foreach ($books as $book)
-                      <tr>                                    
-                          <td>{{ $book->titulo }}</td>
-                          <td>{{ $book->autor }}</td>
-                          <td>{{ $book->editorial }}</td>
-                          <td>{{ $book->isbn }}</td>
-                          <td>{{ $book->paginas }}</td>  
-                          <td>{{ $book->fecha }}</td>
-                          <td>{{ $book->user->name}}</td>
-                          <td>
-                            <a href="/book/{{ $book->id }}/edit" class="btn btn-info">Editar</a>
-                            {{-- <form action="/libro/{{ $libro->id }}" method="POST" class="form form-horizontal">
-                              @csrf
-                              @method('DELETE')
-                              <input type="submit" value="Eliminar" class="btn btn-danger">                                             
-                            </form> --}} 
-                          </td>
-                      </tr>                                                
-                  @endforeach
-              </tbody>
-          </table>
-      </div>
+          <div class="row" id="table-striped">
+              <div class="col-12">
+                  <div class="card">
+                      {{-- <div class="card-header">
+                          <h4 class="card-title">Libros actuales</h4>
+                      </div> --}}
+                      <div class="card-content">                   
+                          <!-- table striped -->
+                          <div class="table-responsive">
+                              <table class="table table-striped mb-0">
+                                  <thead>
+                                      <tr>
+                                          <th>Image</th>
+                                          <th>Título</th>
+                                          <th>Autor</th>
+                                          <th>Editorial</th>
+                                          <th>ISBM</th>
+                                          <th>Páginas</th>
+                                          <th>Fecha</th>
+                                          <th>Precio</th>
+                                          <th>Disponibilidad</th>                                          
+                                          <th>Acción</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    @foreach ($books as $book)                                                                     
+                                      <tr>
+                                        <td><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid" style="width:80px;height:80px"></td>
+                                        <td>{{$book->titulo}}</td>
+                                        <td>{{$book->autor}}</td>
+                                        <td>{{$book->editorial}}</td>
+                                        <td>{{$book->isbn}}</td>
+                                        <td>{{$book->paginas}}</td>
+                                        <td>{{$book->fecha}}</td>
+                                        <td>${{$book->precio}}</td>                                        
+                                        <td>
+                                            @foreach ($book->tags as $tag)                                        
+                                                {{ $tag->tag }} <br> 
+                                            @endforeach
+                                        </td>                                        
+                                        <td><a href="/book/{{$book->id}}/edit" class="btn btn-success">Editar</a>
+                                            <form action="/book/{{$book->id}}" method="POST" class="form form-horizontal">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color: #dc3545">                                             
+                                            </form>                                            
+                                        </td>
+                                      </tr>                                      
+                                    @endforeach                                      
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
   </div>
-    
-    <footer>
+
+    {{-- <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+              <p>Copyright &copy; 2022 <span style="color: red">Proyecto Final
             
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                - Programación para internet: 2022A</span></p>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </footer> --}}
+
+    <x-footer-layout>
+    </x-footer-layout>
 
 
     <!-- Bootstrap core JavaScript -->

@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing Products</title>
+    <title>Buscabucky</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/others.css" /> {{-- Mio --}}
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">        
@@ -46,69 +47,70 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>  
     <!-- ***** Preloader End ***** -->
 
+    <!-- Header -->
     @if(Auth::guest())
       <x-header-layout> 
         <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>                    
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
-          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/"
+                    >Inicio
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>                    
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/products') }}"
+                    >Productos</a
+                >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html"
+                    >Sobre nosotros</a
+                >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html"
+                    >Contáctanos</a
+                >
+            </li>
         </x-slot> 
       </x-header-layout>      
-    @else  
+    @else   
       <x-header-layout> 
-        <x-slot name="items">
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-                >Home
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>                    
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/products') }}"
-                >Our Products</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-                >About Us</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-                >Contact Us</a
-            >
-          </li>
-        </x-slot> 
-        @livewire('navigation-menu')
-      </x-header-layout>       
+          <x-slot name="items">
+              <li class="nav-item">
+                  <a class="nav-link" href="/"
+                      >Inicio
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>                    
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{ url('/products') }}"
+                      >Productos</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html"
+                      >Sobre Nosotros</a
+                  >
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html"
+                      >Contáctanos</a
+                  >
+              </li>
+          </x-slot> 
+          @livewire('navigation-menu')
+      </x-header-layout>      
     @endif
 
     <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
+    <div class="page-heading products-heading2 header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="text-content">
-              <h4>new arrivals</h4>
-              <h2>sixteen products</h2>
+            <div class="text-content">              
+              <h4>Las mejores ofertas</h4>
+              <h2>Los mejores libros</h2>
             </div>
           </div>
         </div>
@@ -261,13 +263,14 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2 style="color: red">All Products</h2>              
+              <h2 style="color: red">Todos los productos</h2>              
             </div>
           </div>
           @foreach ($books as $book)                                                                     
             <div class="col-md-4">
               <div class="product-item">
-                <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
+                {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                
+                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid" style="width:370;height:400px"></a>
                 <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
                 <div class="down-content">
                   <a href="#"><h4>{{$book->titulo}}</h4></a>
@@ -287,8 +290,9 @@ https://templatemo.com/tm-546-sixteen-clothing
               </div>              
             </div>
           @endforeach
+        </div>
       </div>
-  </div>
+    </div>
     
     
     
@@ -316,19 +320,8 @@ https://templatemo.com/tm-546-sixteen-clothing
       @endforeach
     </div>  --}}    
     
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-            
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <x-footer-layout>
+    </x-footer-layout>
 
 
     <!-- Bootstrap core JavaScript -->
