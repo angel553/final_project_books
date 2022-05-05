@@ -37,7 +37,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </head>
 
     <body>
-
+        
         <!-- ***** Preloader Start ***** -->
         <div id="preloader">
             <div class="jumper">
@@ -118,7 +118,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   <div class="card-body"> 
                       @isset($book)
                           <form class="form form-horizontal" action="/book/{{ $book->id }}" method="POST" enctype="multipart/form-data"> {{-- update --}}                                                            
-                              @method('PATCH')                                    
+                              @method('PATCH')                                                                                               
                       @else
                           <form class="form form-horizontal" action="/book" method="POST" enctype="multipart/form-data">                            
                       @endisset                           
@@ -151,7 +151,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="text" id="editorial" class="form-control" name="editorial"
-                                          placeholder="Editorial" value="{{ isset($book) ? $book->fecha : '' }}{{ old('editorial') }}">
+                                          placeholder="Editorial" value="{{ isset($book) ? $book->editorial : '' }}{{ old('editorial') }}">
                                       @error('editorial')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -284,26 +284,8 @@ https://templatemo.com/tm-546-sixteen-clothing
 
         {{-- Fin del test create --}} 
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>
-                                Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-                                - Design:
-                                <a
-                                    rel="nofollow noopener"
-                                    href="https://templatemo.com"
-                                    target="_blank"
-                                    >TemplateMo</a
-                                >
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <x-footer-layout>
+        </x-footer-layout>
 
         <!-- Bootstrap core JavaScript -->
         <script src="/vendor/jquery/jquery.min.js"></script>

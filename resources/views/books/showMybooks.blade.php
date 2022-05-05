@@ -35,8 +35,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
   </head>
 
-  <body>
-
+  <body>        
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -101,13 +100,27 @@ https://templatemo.com/tm-546-sixteen-clothing
         </x-slot> 
         @livewire('navigation-menu')
       </x-header-layout>      
-    @endif
+    @endif    
     
     <div class="page-heading_">
       <div class="page-content">
         <h2 style="color: red">Todos las publicaciones</h2>
       </div>
-    </div>    
+    </div>  
+
+    {{-- Flash Message --}}    
+    <div class="container">      
+      <div id="col-md-7 offset-3 mt-4">
+        @include('flashMessage')
+        @yield('content')
+      </div>
+    </div> 
+    {{-- <div class="alert alert-success">
+      @if (session('success'))
+          {{ session('success') }}
+      @endif
+    </div>  --}}
+
   <div class="page-content">      
       {{-- TABLA --}}
       <section class="section">

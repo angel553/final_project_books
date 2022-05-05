@@ -17,8 +17,11 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::latest()->take(6)->get();
         $tags = Tag::all();        
+        
+//        Session::flash('message','Your message');
+
         return view('books.index', compact('books','tags'));
     }
 
@@ -87,7 +90,7 @@ class BookController extends Controller
 
         $book->tags()->attach($request->etiqueta_id);
 
-        return redirect('/products');
+        return redirect('/products')->with('success','Publicación Realizada');
     }
 
     /**
@@ -166,7 +169,7 @@ class BookController extends Controller
         
         $book->tags()->sync($request->etiqueta_id);
 
-        return redirect('/');
+        return redirect('/myproducts')->with('success','Producto Actualizado');
         //return redirect('/libro/' . $libro->id);
     }
 

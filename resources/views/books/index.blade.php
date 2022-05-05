@@ -39,6 +39,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </head>
 
     <body>
+       
         {{-- <!-- ***** Preloader Start ***** -->
         <div id="preloader">
             <div class="jumper">
@@ -131,7 +132,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <div></div>
             </div>
         </div>
-        <!-- ***** Preloader End ***** -->
+        <!-- ***** Preloader End ***** -->                
 
         <!-- Header -->
         @if(Auth::guest())
@@ -202,14 +203,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </div>
                 <div class="banner-item-02">
                     <div class="text-content">
-                        <h4>Flash Deals</h4>
-                        <h2>Get your best products</h2>
+                        <h4>¿Estudias en Cucei y amas la lectura?</h4>
+                        <h2>Este es tu lugar</h2>
                     </div>
                 </div>
                 <div class="banner-item-03">
                     <div class="text-content">
-                        <h4>Last Minute</h4>
-                        <h2>Grab last minute deals</h2>
+                        <h4>Tratos personales</h4>
+                        <h2>Dentro de Cucei</h2>
                     </div>
                 </div>
             </div>
@@ -271,7 +272,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
         {{-- Fin del test index --}}
 
-
+        
         <div class="latest-products">
             <div class="container">
                 <div class="row">
@@ -284,7 +285,31 @@ https://templatemo.com/tm-546-sixteen-clothing
                             ></a>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    @foreach ($books as $book)                                                                     
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                
+                                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid rounded mx-auto d-block" style="height:400px;width: 300px;"></a>                
+                                <div class="down-content">
+                                <a href="#"><h4>{{$book->titulo}}</h4></a>
+                                <h6>${{$book->precio}}</h6>
+                                <p>{{$book->autor}}</p>
+                                <p>{{$book->editorial}}</p>
+                                
+                                <a href="/book/{{$book->id}}" class="btn btn-secondary">Obtener detalles</a>
+                                {{-- <ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                                <span>Reviews (12)</span> --}}                                    
+                                </div>
+                            </div>              
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-md-4">
                         <div class="product-item">
                             <a href="#"
                                 ><img src="assets/images/product_01.jpg" alt=""
@@ -421,7 +446,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                 <span>Reviews (32)</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -490,7 +515,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>
         </div> --}}
 
-        <div class="call-to-action">
+        {{-- <div class="call-to-action">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -517,7 +542,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <x-footer-layout>
         </x-footer-layout>
