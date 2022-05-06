@@ -53,13 +53,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="about.html"
+                  <a class="nav-link" href="{{ url('/about') }}"
                       >Sobre nosotros</a
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="contact.html"
-                      >Contactanos</a
+                  <a class="nav-link" href="{{ url('/contactus') }}"
+                      >Contáctanos</a
                   >
               </li>
           </x-slot> 
@@ -79,13 +79,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="about.html"
+                  <a class="nav-link" href="{{ url('/about') }}"
                       >Sobre Nosotros</a
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="contact.html"
-                      >Contactanos</a
+                  <a class="nav-link" href="{{ url('/contactus') }}"
+                      >Contáctanos</a
                   >
               </li>
           </x-slot> 
@@ -116,7 +116,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <div class="row grid">
                   <div class="col-lg-8 col-md-2 all des"> {{-- col-lg-8 --}}
                     <div class="product-item" style="margin-left: 50%"> {{-- 50% --}}
-                      <a href="#"><img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{Storage::url($book->route_image)}}" alt="Imagen del producto" style="height: 400px;width: 300px"></a>
+                      <a href="#"><img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{Storage::url($book->route_image)}}" alt="Imagen del producto" style="height: 400px;width: 380px"></a>
                       {{-- <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a> --}}
                       <div class="down-content">
                         <a href="#"></a>

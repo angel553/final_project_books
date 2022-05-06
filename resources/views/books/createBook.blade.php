@@ -64,12 +64,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html"
+                        <a class="nav-link" href="{{ url('/about') }}"
                             >Sobre nosotros</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"
+                        <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
                     </li>
@@ -90,12 +90,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html"
+                        <a class="nav-link" href="{{ url('/about') }}"
                             >Sobre Nosotros</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"
+                        <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
                     </li>
@@ -131,7 +131,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="text" id="titulo" class="form-control" name="titulo"
-                                          placeholder="Título" value="{{ isset($book) ? $book->titulo : '' }}{{ old('titulo') }}">
+                                          placeholder="Título" value="{{ isset($book) ? $book->titulo : '' }}">
                                       @error('titulo')
                                           <div class="alert alert-danger">{{ $message }}</div>                                                                                          
                                       @enderror
@@ -141,7 +141,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="text" id="autor" class="form-control" name="autor"
-                                          placeholder="Autor" value="{{ isset($book) ? $book->autor : '' }}{{ old('autor') }}">
+                                          placeholder="Autor" value="{{ isset($book) ? $book->autor : '' }}">
                                       @error('autor')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -151,7 +151,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="text" id="editorial" class="form-control" name="editorial"
-                                          placeholder="Editorial" value="{{ isset($book) ? $book->editorial : '' }}{{ old('editorial') }}">
+                                          placeholder="Editorial" value="{{ isset($book) ? $book->editorial : '' }}">
                                       @error('editorial')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -161,7 +161,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="number" id="isbn" class="form-control" name="isbn"
-                                          placeholder="ISBN" value="{{ isset($book) ? $book->isbn : '' }}{{ old('isbn') }}">
+                                          placeholder="ISBN" value="{{ isset($book) ? $book->isbn : '' }}">
                                       @error('isbn')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -171,7 +171,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="number" id="paginas" class="form-control" name="paginas"
-                                          placeholder="Páginas" value={{ isset($book) ? $book->paginas : '' }}{{ old('paginas') }}>
+                                          placeholder="Páginas" value={{ isset($book) ? $book->paginas : '' }}>
                                       @error('paginas')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -181,7 +181,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                     <input type="date" id="contact-info" class="form-control" name="fecha"
-                                        placeholder="Fecha de publicación" value="{{ isset($book) ? $book->fecha : '' }}{{ old('fecha') }}">
+                                        placeholder="Fecha de publicación" value="{{ isset($book) ? $book->fecha : '' }}">
                                     @error('fecha')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -191,7 +191,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   </div>
                                   <div class="col-md-8 form-group">
                                     <input type="number" id="contact-info" class="form-control" name="precio"
-                                        placeholder="Precio" value="{{ isset($book) ? $book->precio : '' }}{{ old('precio') }}">
+                                        placeholder="Precio" value="{{ isset($book) ? $book->precio : '' }}">
                                     @error('precio')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -222,13 +222,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                                   @else
                                      
                                   @endisset
-
+                                  
                                   <div class="col-md-4">
                                     <label>Cargar Imagen</label>
                                   </div>
                                   
                                   <div class="col-md-4 form-group">
-                                    {{isset($book) ? Storage::url($book->route_image) : 'AAA'}}
+{{--                                     {{isset($book) ? Storage::url($book->route_image) : ''}} --}}
                                     <input type="file" accept="image/*" id="archivo" class="form-control" name="archivo" value="{{ isset($book) ? Storage::url($book->route_image) : '' }}{{ old('archivo') }}">                                                                                                                        
                                     @error('archivo')
                                         <div class="alert alert-danger">{{ $message }}</div>

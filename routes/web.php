@@ -36,6 +36,10 @@ Route::get('/products', [BookController::class, 'showBooks']);
 
 Route::get('/myproducts', [BookController::class, 'showMyBooks']);
 
+Route::get('/contactus', [BookController::class, 'contactUs']);
+
+Route::get('/about', [BookController::class, 'aboutUs']);
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', [BookController::class, 'index'])->name('dashboard');
 });

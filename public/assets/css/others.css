@@ -12,3 +12,8 @@
     /* background-repeat: no-repeat; */
     /* background-size: cover; */
 }
+
+.about-heading2 {
+    background-image: url(../images/team.jpg);    
+    opacity: 0.96;
+}

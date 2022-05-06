@@ -67,7 +67,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               >
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="contact.html"
+              <a class="nav-link" href="{{ url('/contactus') }}"
                   >Contáctanos</a
               >
           </li>
@@ -88,12 +88,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                 >
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html"
+                <a class="nav-link" href="{{ url('/about') }}"
                     >Sobre Nosotros</a
                 >
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html"
+                <a class="nav-link" href="{{ url('/contactus') }}"
                     >Contáctanos</a
                 >
             </li>
@@ -197,21 +197,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               </div>
           </div>
       </section>
-  </div>
-
-    {{-- <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2022 <span style="color: red">Proyecto Final
-            
-                - Programación para internet: 2022A</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer> --}}
+  </div>    
 
     <x-footer-layout>
     </x-footer-layout>

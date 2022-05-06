@@ -20,11 +20,11 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <!--
 
-TemplateMo 546 Sixteen Clothing
+        TemplateMo 546 Sixteen Clothing
 
-https://templatemo.com/tm-546-sixteen-clothing
+        https://templatemo.com/tm-546-sixteen-clothing
 
--->
+        -->
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css" />
@@ -150,12 +150,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html"
+                        <a class="nav-link" href="{{ url('/about') }}"
                             >Sobre nosotros</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"
+                        <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
                     </li>
@@ -176,12 +176,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html"
+                        <a class="nav-link" href="{{ url('/about') }}"
                             >Sobre Nosotros</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"
+                        <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
                     </li>

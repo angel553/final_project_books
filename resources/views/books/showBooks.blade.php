@@ -63,12 +63,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                 >
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html"
+                <a class="nav-link" href="{{ url('/about') }}"
                     >Sobre nosotros</a
                 >
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html"
+                <a class="nav-link" href="{{ url('/contactus') }}"
                     >Contáctanos</a
                 >
             </li>
@@ -89,12 +89,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="about.html"
+                  <a class="nav-link" href="{{ url('/about') }}"
                       >Sobre Nosotros</a
                   >
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="contact.html"
+                  <a class="nav-link" href="{{ url('/contactus') }}"
                       >Contáctanos</a
                   >
               </li>
@@ -270,7 +270,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="col-md-4">
               <div class="product-item">
                 {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                
-                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid rounded mx-auto d-block" style="height:400px;width: 300px;"></a>                
+                <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid rounded mx-auto d-block" style="height:400px;width: 350px;"></a>                
                 <div class="down-content">
                   <a href="#"><h4>{{$book->titulo}}</h4></a>
                   <h6>${{$book->precio}}</h6>
