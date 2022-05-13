@@ -97,7 +97,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                   <a class="nav-link" href="{{ url('/contactus') }}"
                       >Contáctanos</a
                   >
-              </li>
+              </li>              
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/booksadmin') }}"
+                        >Libros</a
+                    >
+                </li>
+              
           </x-slot> 
           @livewire('navigation-menu')
       </x-header-layout>      
@@ -269,13 +276,18 @@ https://templatemo.com/tm-546-sixteen-clothing
           @foreach ($books as $book)                                                                     
             <div class="col-md-4">
               <div class="product-item">
-                {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                
+                {{-- <a href="#"><img src="assets/images/product_01.jpg" alt=""></a> --}}                                          
                 <a href="#"><img src=" {{Storage::url($book->route_image)}} " alt="" class="img-fluid rounded mx-auto d-block" style="height:400px;width: 350px;"></a>                
                 <div class="down-content">
                   <a href="#"><h4>{{$book->titulo}}</h4></a>
                   <h6>${{$book->precio}}</h6>
                   <p>{{$book->autor}}</p>
-                  <p>{{$book->editorial}}</p>
+                  <p>{{$book->editorial}}</p>  
+                  <p>
+                    @foreach ($book->tags as $tag)                                        
+                        {{ $tag->tag }} 
+                    @endforeach
+                </p>                
                   
                   <a href="/book/{{$book->id}}" class="btn btn-secondary">Obtener detalles</a>
                   {{-- <ul class="stars">

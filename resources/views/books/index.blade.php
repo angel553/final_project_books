@@ -158,7 +158,7 @@
                         <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
-                    </li>
+                    </li>                    
                 </x-slot> 
             </x-header-layout>      
         @else   
@@ -184,7 +184,12 @@
                         <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
-                    </li>
+                    </li>                                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/booksadmin') }}"
+                            >Libros</a
+                        >
+                    </li>                    
                 </x-slot> 
                 @livewire('navigation-menu')
             </x-header-layout>      
@@ -199,6 +204,7 @@
                     <div class="text-content">
                         <h4>Las mejores ofertas</h4>
                         <h2>Los mejores libros</h2>
+                        {{-- {{Auth::user()->tipo}} --}}
                     </div>
                 </div>
                 <div class="banner-item-02">
@@ -262,7 +268,7 @@
                                 </td>
                                 <td>{{$book->route_image}}</td>
                             </tr>                                                                          
-                        @endforeach
+                        @endforeach                       
                     </tbody>
                 </table>
             </div>
@@ -295,6 +301,11 @@
                                 <h6>${{$book->precio}}</h6>
                                 <p>{{$book->autor}}</p>
                                 <p>{{$book->editorial}}</p>
+                                <p>
+                                    @foreach ($book->tags as $tag)                                        
+                                        {{ $tag->tag }}    
+                                    @endforeach
+                                </p>
                                 
                                 <a href="/book/{{$book->id}}" class="btn btn-secondary">Obtener detalles</a>
                                 {{-- <ul class="stars">

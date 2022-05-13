@@ -76,7 +76,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     @else   
       <x-header-layout> 
         <x-slot name="items">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/"
                     >Inicio
                     <span class="sr-only">(current)</span>
@@ -96,14 +96,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="{{ url('/contactus') }}"
                     >Contáctanos</a
                 >
-            </li>
-                        
+            </li>            
+            @can('delete')            
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/booksadmin') }}"
                         >Libros</a
                     >
                 </li>
-            
+            @endcan
         </x-slot> 
         @livewire('navigation-menu')
       </x-header-layout>      
@@ -111,7 +111,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     
     <div class="page-heading_">
       <div class="page-content">
-        <h2 style="color: red">Todos las publicaciones</h2>
+        <h2 style="color: red">Todos las publicaciones actuales</h2>
       </div>
     </div>  
 
@@ -136,23 +136,19 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>  --}}                                                                                
             <div class="col-auto col-lg-5">
             </div>             
-            <div class=" px-8">                                           
+            {{-- <div class=" px-8">                                           
                 <div class="card">
                     <div class="card-body px-6 py-2-8 ">
-                        <a href="/book/create">
-                            {{-- <span class="glyphicon glyphicon-search"></span> --}}
+                        <a href="/book/create">                            
                             <h6 class="font-extrabold  btn btn-primary ">Agregar Nueva Publicación</h6>
                         </a>                        
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
           <div class="row" id="table-striped">
               <div class="col-12">
-                  <div class="card">
-                      {{-- <div class="card-header">
-                          <h4 class="card-title">Libros actuales</h4>
-                      </div> --}}
+                  <div class="card">                    
                       <div class="card-content">                   
                           <!-- table striped -->
                           <div class="table-responsive">
@@ -188,13 +184,11 @@ https://templatemo.com/tm-546-sixteen-clothing
                                             @endforeach
                                         </td>                                        
                                         <td><a href="/book/{{$book->id}}/edit" class="btn btn-success">Editar</a>
-                                            @can('delete', $book)
-                                                <form action="/book/{{$book->id}}" method="POST" class="form form-horizontal">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color: #dc3545">                                             
-                                                </form>
-                                            @endcan
+                                            <form action="/book/{{$book->id}}" method="POST" class="form form-horizontal">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color: #dc3545">                                             
+                                            </form>                                            
                                         </td>
                                       </tr>                                      
                                     @endforeach                                      

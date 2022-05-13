@@ -87,7 +87,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                   <a class="nav-link" href="{{ url('/contactus') }}"
                       >Contáctanos</a
                   >
-              </li>
+              </li>              
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/booksadmin') }}"
+                        >Libros</a
+                    >
+                </li>
+              
           </x-slot> 
           @livewire('navigation-menu')
       </x-header-layout>      
@@ -127,19 +134,27 @@ https://templatemo.com/tm-546-sixteen-clothing
                         <p><b>ISBN: </b>{{$book->isbn}}</p>
                         <p><b>Páginas: </b>{{$book->paginas}}</p>
                         <p><b>Fecha: </b>{{$book->fecha}}</p>
-                        <p><b>Disponibilidad: </b>@foreach ($book->tags as $tag)                                        
-                          {{ $tag->tag }} <br> 
+                        <p><b>Disponibilidad: </b>
+                          @foreach ($book->tags as $tag)                                        
+                            {{ $tag->tag }} 
                           @endforeach
                         </p>
-                        <p><b>Vendedor: </b>{{$book->user->name}}</p>
-                        @foreach ($book->tags as $tag)                                                                  
+                        <p><b>Vendedor: </b>{{$book->user->name}}</p>                                               
+                        
+                        {{-- @foreach ($book->tags as $tag)                                                                                                                    
                           @if ($tag->tag == "Venta" || $tag->tag == "Intercambio")
-                            <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                            
+                            <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                                                        
                           @else
                             <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
-                          @endif
-                        @endforeach                                               
-                                                                    
+                          @endif                                                       
+                        @endforeach --}}     
+
+                        @if ($tag->tag == "No disponible")
+                          <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
+                        @else
+                          <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                                                        
+                        @endif 
+
                         {{-- <ul class="stars">
                           <li><i class="fa fa-star"></i></li>
                           <li><i class="fa fa-star"></i></li>

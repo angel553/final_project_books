@@ -16,9 +16,11 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $books = Book::latest()->take(6)->get();
-        $tags = Tag::all();        
+    {        
+        //$books = Book::all();
+        $books = Book::with('user','tags')->latest()->take(6)->get();
+        //dd($books);
+        $tags = Tag::all();          
         
 //        Session::flash('message','Your message');
 
@@ -199,7 +201,7 @@ class BookController extends Controller
      */
     public function showBooks()
     {
-        $books = Book::all();           
+        $books = Book::with('user','tags')->get();           
         return view('books.showBooks', compact('books'));
     }
     
@@ -210,7 +212,7 @@ class BookController extends Controller
      */
     public function showMyBooks()
     {        
-        $books = Auth::user()->books; 
+        $books = Auth::user()->books;
         $tags = Tag::all();                 
         //dd($books);
         return view('books.showMyBooks', compact('books'));
@@ -234,5 +236,18 @@ class BookController extends Controller
     public function aboutUS()
     {                                       
         return view('us.about');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showBooksAdmin()
+    {        
+        $books = Book::with('user','tags')->get();
+        $tags = Tag::with('books')->get();
+
+        return view('admin.booksAdmin', compact('books'));;
     }
 }

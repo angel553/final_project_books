@@ -98,7 +98,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                         <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
-                    </li>
+                    </li>                                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/booksadmin') }}"
+                            >Libros</a
+                        >
+                    </li>                    
                 </x-slot> 
                 @livewire('navigation-menu')
             </x-header-layout>      

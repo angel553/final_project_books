@@ -100,6 +100,11 @@
                       >Contáctanos</a
                   >
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/booksadmin') }}"
+                    >Libros</a
+                >
+            </li>
           </x-slot> 
           @livewire('navigation-menu')
       </x-header-layout>      

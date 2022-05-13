@@ -47,11 +47,11 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
         --}}
     </head>
-    <body>        
+    <body>               
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html"
+                    <a class="navbar-brand" href="/"
                         ><h2>Busca <em>Bucky</em></h2></a
                     >
                     <button
@@ -79,12 +79,12 @@
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.html"
+                                <a class="nav-link" href="{{ url('/about') }}"
                                     >Sobre Nosotros</a
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html"
+                                <a class="nav-link" href="{{ url('/contactus') }}"
                                     >Contáctanos</a
                                 >
                             </li>

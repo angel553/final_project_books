@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ use App\Http\Controllers\BookController;
 
 Route::middleware(['auth'])->group(function () {    
     Route::resource('/book', BookController::class);        
+    Route::resource('/user', UserController::class);        
 });
 
 Route::get('/', [BookController::class, 'index']);
@@ -39,6 +41,8 @@ Route::get('/myproducts', [BookController::class, 'showMyBooks']);
 Route::get('/contactus', [BookController::class, 'contactUs']);
 
 Route::get('/about', [BookController::class, 'aboutUs']);
+
+Route::get('/booksadmin', [BookController::class, 'showBooksAdmin']);
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', [BookController::class, 'index'])->name('dashboard');
