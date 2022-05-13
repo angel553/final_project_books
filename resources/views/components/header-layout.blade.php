@@ -44,11 +44,14 @@
                         @if (Route::has('login'))
                             <div class="py-0">
                                 @auth
-                                    <a
-                                        href="{{ url('/myproducts') }}"
-                                        class="nav-link btn btn-secondary"
-                                        >Mis productos</a
-                                    >
+                                    {{-- Policies --}}
+                                    @can('vieww', App\Models\Book::class)                                                                        
+                                        <a
+                                            href="{{ url('/myproducts') }}"
+                                            class="nav-link btn btn-secondary"
+                                            >Mis productos</a
+                                        >
+                                    @endcan
                                 @else
                                     <a
                                         href="{{ route('login') }}"

@@ -97,7 +97,8 @@ https://templatemo.com/tm-546-sixteen-clothing
                     >Contáctanos</a
                 >
             </li>            
-            @can('delete')            
+            {{-- Policies --}}
+            @can('viewAny', App\Models\Book::class)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/booksadmin') }}"
                         >Libros</a

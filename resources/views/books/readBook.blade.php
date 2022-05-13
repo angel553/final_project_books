@@ -89,11 +89,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                   >
               </li>              
               
+              {{-- Policies --}}
+              @can('viewAny', App\Models\Book::class)
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/booksadmin') }}"
-                        >Libros</a
-                    >
+                   <a class="nav-link" href="{{ url('/booksadmin') }}"
+                       >Libros</a
+                   >
                 </li>
+              @endcan
               
           </x-slot> 
           @livewire('navigation-menu')

@@ -184,12 +184,15 @@
                         <a class="nav-link" href="{{ url('/contactus') }}"
                             >Contáctanos</a
                         >
-                    </li>                                                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/booksadmin') }}"
-                            >Libros</a
-                        >
-                    </li>                    
+                    </li> 
+                    {{-- Policies --}}
+                    @can('viewAny', App\Models\Book::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/booksadmin') }}"
+                                >Libros</a
+                            >
+                        </li>
+                    @endcan                  
                 </x-slot> 
                 @livewire('navigation-menu')
             </x-header-layout>      

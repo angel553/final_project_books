@@ -214,7 +214,7 @@ class BookController extends Controller
     {        
         $books = Auth::user()->books;
         $tags = Tag::all();                 
-        //dd($books);
+        //dd($books);        
         return view('books.showMyBooks', compact('books'));
     }
 
@@ -245,8 +245,11 @@ class BookController extends Controller
      */
     public function showBooksAdmin()
     {        
+        
         $books = Book::with('user','tags')->get();
         $tags = Tag::with('books')->get();
+        
+        //$this->authorize('viewAny');
 
         return view('admin.booksAdmin', compact('books'));;
     }

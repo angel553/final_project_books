@@ -99,11 +99,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                             >Contáctanos</a
                         >
                     </li>                                                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/booksadmin') }}"
-                            >Libros</a
-                        >
-                    </li>                    
+                    @can('viewAny', App\Models\Book::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/booksadmin') }}"
+                                >Libros</a
+                            >
+                        </li>
+                    @endcan                    
                 </x-slot> 
                 @livewire('navigation-menu')
             </x-header-layout>      
