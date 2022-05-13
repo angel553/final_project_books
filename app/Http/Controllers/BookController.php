@@ -191,7 +191,7 @@ class BookController extends Controller
 
         $book->delete();
 
-        return redirect('/');
+        return redirect('/booksadmin')->with('success','Publicación Eliminada');
     }
 
      /**
@@ -251,6 +251,6 @@ class BookController extends Controller
         
         //$this->authorize('viewAny');
 
-        return view('admin.booksAdmin', compact('books'));;
+        return view('admin.booksAdmin', compact('books'));
     }
 }

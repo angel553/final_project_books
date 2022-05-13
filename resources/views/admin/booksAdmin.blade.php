@@ -99,7 +99,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             </li>            
             {{-- Policies --}}
             @can('viewAny', App\Models\Book::class)
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/booksadmin') }}"
                         >Libros</a
                     >

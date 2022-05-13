@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('book_image');
             $table->string('route_image');
             $table->timestamps();
-            //$table->softDeletes();
+            $table->softDeletes();
         });
     }
 

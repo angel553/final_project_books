@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-//use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
     use HasFactory;
-    //use SoftDeletes;
+    use SoftDeletes;
 
     //protected $fillable = ['nombre_original', 'ruta', 'mime'];
     protected $fillable = ['book_image'];
