@@ -8,6 +8,9 @@
         />
         <meta name="description" content="" />
         <meta name="author" content="" />
+
+        <link rel="icon" href="assets/images/book_icon2.png">
+
         <link
             href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
             rel="stylesheet"
@@ -29,7 +32,8 @@
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css" />
         <link rel="stylesheet" href="assets/css/templatemo-sixteen.css" />
-        <link rel="stylesheet" href="assets/css/owl.css" />        
+        <link rel="stylesheet" href="assets/css/owl.css" />  
+        <link rel="stylesheet" href="/assets/css/others.css" /> {{-- Mio --}}             
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">        
@@ -219,7 +223,7 @@
 
         {{-- Test del index --}}
 
-        <div class="card-content">                   
+        {{-- <div class="card-content">                   
             <!-- table striped -->
             <div class="table-responsive">
                 <table class="table table-striped mb-0">
@@ -253,7 +257,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Eliminar" class="btn btn-danger">                                             
-                                  </form> --}} 
+                                  </form> 
                                 </td>
                                 <td> 
                                     @foreach ($book->tags as $tag)                                        
@@ -268,7 +272,7 @@
             </div>
         </div>
 
-        <a href="/book/create" class="btn btn-info">Agregar</a>        
+        <a href="/book/create" class="btn btn-info">Agregar</a> --}}        
 
         {{-- Fin del test index --}}
 

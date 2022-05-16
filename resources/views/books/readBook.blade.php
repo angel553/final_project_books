@@ -7,8 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <link rel="icon" href="assets/images/book_icon2.png">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+    <link rel="icon" href="/assets/images/book_icon2.png">
+    
     <title>Buscabucky</title>
 
     <!-- Bootstrap core CSS -->
@@ -121,11 +126,10 @@ https://templatemo.com/tm-546-sixteen-clothing
       <div class="container">
         <div class="row">          
           <div class="col-md-12">
-            <div class="filters-content">
-                                                                                   
+            <div class="filters-content">                                                                                   
                 <div class="row grid">
-                  <div class="col-lg-8 col-md-2 all des"> {{-- col-lg-8 --}}
-                    <div class="product-item" style="margin-left: 50%"> {{-- 50% --}}
+                  <div class="col-lg-6 col-md-2 all des"> {{-- col-lg-8 --}}
+                    <div class="product-item" style="margin-left: 20%"> {{-- 50% --}}
                       <a href="#"><img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{Storage::url($book->route_image)}}" alt="Imagen del producto" style="height: 400px;width: 380px"></a>
                       {{-- <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a> --}}
                       <div class="down-content">
@@ -152,37 +156,118 @@ https://templatemo.com/tm-546-sixteen-clothing
                           @endif                                                       
                         @endforeach --}}     
 
+                        {{-- @if ($tag->tag == "No disponible")
+                          <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
+                        @else
+                          <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                                                        
+                        @endif --}}                         
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="col-lg-6 col-md-2 all des"> {{-- col-lg-8 --}}
+                    <div class="product-item" style="margin-left: 20%"> {{-- 50% --}}                                                                    
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="section-heading" style="text-align: center;margin-top:20px">
+                              <h2><strong> Contactar Vendedor</h2></strong>                              
+                            </div>                                                       
+                          </div>
+                          <div class="col-md-12">
+                            <div class="contact-form">
+                              <form id="contact" action="/contactuss" method="post">
+                                @csrf
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                      <div class="col-md-4">
+                                        <label>Para</label>
+                                      </div>
+                                      <input name="email2" type="text" class="form-control" id="email2" Value="{{$book->user->email}}" disabled>
+                                      @error('email2')
+                                        <div class="alert alert-danger">{{ $message }}</div>                                                                                          
+                                      @enderror
+                                    </fieldset>
+                                    <fieldset>
+                                      <div class="col-md-4">
+                                        <label>Nombre</label>
+                                      </div>
+                                      <input name="name" type="text" class="form-control" id="name" placeholder="Nombre completo" required="">
+                                      @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>                                                                                          
+                                      @enderror
+                                    </fieldset>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                      <div class="col-md-4">
+                                        <label>Correo</label>
+                                      </div>
+                                      <input name="email" type="text" class="form-control" id="email" placeholder="Dirección de correo electrónico" required="">
+                                      @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>                                                                                          
+                                      @enderror
+                                    </fieldset>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                      <div class="col-md-4">
+                                        <label>Asunto</label>
+                                      </div>
+                                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Asunto" required="">
+                                      @error('subject')
+                                        <div class="alert alert-danger">{{ $message }}</div>                                                                                          
+                                      @enderror
+                                    </fieldset>
+                                  </div>
+                                  <div class="col-lg-12">
+                                    <fieldset>
+                                      <div class="col-md-4">
+                                        <label>Mensaje</label>
+                                      </div>
+                                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mensaje" required=""></textarea>
+                                      @error('message')
+                                        <div class="alert alert-danger">{{ $message }}</div>                                                                                          
+                                      @enderror
+                                    </fieldset>
+                                  </div>
+                                  <div class="col-lg-12">
+                                    <fieldset>
+                                      <button type="submit" id="form-submit" class="filled-button">Enviar mensaje</button>
+                                    </fieldset>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>                              
+                        </div>
+                      </div>                        
+                        {{-- <a href="#"></a>
+                        <h4><b>{{$book->titulo}}</b></h4>
+                        <h6><strong>${{$book->precio}}</strong></h6>
+                        <p><b>Autor: </b>{{$book->autor}}</p>
+                        <p><b>Editorial: </b>{{$book->editorial}}</p>
+                        <p><b>ISBN: </b>{{$book->isbn}}</p>
+                        <p><b>Páginas: </b>{{$book->paginas}}</p>
+                        <p><b>Fecha: </b>{{$book->fecha}}</p>
+                        <p><b>Disponibilidad: </b>
+                          @foreach ($book->tags as $tag)                                        
+                            {{ $tag->tag }} 
+                          @endforeach
+                        </p>
+                        <p><b>Vendedor: </b>{{$book->user->name}}</p>                                                                        
+
                         @if ($tag->tag == "No disponible")
                           <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
                         @else
                           <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                                                        
-                        @endif 
-
-                        {{-- <ul class="stars">
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>Reviews (12)</span> --}}
-                      </div>
+                        @endif --}}                                               
                     </div>
-                  </div>                   
+                  </div>                  
                 </div>
-
             </div>
-          </div>
-          {{-- <div class="col-md-12">
-            <ul class="pages">
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-            </ul>
-          </div> --}}
-        </div>
+          </div>          
+        </div>        
       </div>
     </div>
     
@@ -214,6 +299,11 @@ https://templatemo.com/tm-546-sixteen-clothing
       }
     </script>
 
+    @if (session('info'))
+      <script>
+        alert("{{session('info')}}");
+      </script>
+    @endif
 
   </body>
 

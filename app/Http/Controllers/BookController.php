@@ -216,17 +216,7 @@ class BookController extends Controller
         $tags = Tag::all();                 
         //dd($books);        
         return view('books.showMyBooks', compact('books'));
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function contactUs()
-    {                                       
-        return view('us.contactUs');
-    }
+    }    
 
     /**
      * Display a listing of the resource.

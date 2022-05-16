@@ -13,6 +13,8 @@
             rel="stylesheet"
         />
 
+        <link rel="icon" href="assets/images/book_icon2.png">
+
         {{-- <title>Sixteen Clothing HTML Template</title> --}}
         <title>Buscabucky</title>
 

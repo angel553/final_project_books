@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,15 +31,19 @@ Route::middleware(['auth'], 'verified')->group(function () {
     Route::resource('/book', BookController::class)->middleware('verified');               
 });
 
-Route::get('/', [BookController::class, 'index'])->middleware('verified');
+Route::get('/', [BookController::class, 'index']);
 
-Route::get('/products', [BookController::class, 'showBooks'])->middleware('verified');
+Route::get('/products', [BookController::class, 'showBooks']);
 
 Route::get('/myproducts', [BookController::class, 'showMyBooks'])->middleware('verified');
 
-Route::get('/contactus', [BookController::class, 'contactUs'])->middleware('verified');
+Route::get('/contactus', [ContactController::class, 'index']);
 
-Route::get('/about', [BookController::class, 'aboutUs'])->middleware('verified');
+Route::post('/contactus', [ContactController::class, 'store'])->middleware('verified');
+
+Route::post('/contactuss', [ContactController::class, 'storeSeller'])->middleware('verified');
+
+Route::get('/about', [BookController::class, 'aboutUs']);
 
 Route::get('/booksadmin', [BookController::class, 'showBooksAdmin'])->middleware('verified');
 
