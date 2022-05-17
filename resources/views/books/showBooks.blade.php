@@ -15,13 +15,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -295,47 +288,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </p>                
                   
                   <a href="/book/{{$book->id}}" class="btn btn-secondary">Obtener detalles</a>
-                  {{-- <ul class="stars">
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                  </ul>
-                  <span>Reviews (12)</span> --}}                                    
+                                                      
                 </div>
               </div>              
             </div>
           @endforeach
         </div>
       </div>
-    </div>
-    
-    
-    
-    
-    
-    {{-- <div class="product-item">
-      @foreach ($books as $book)                                                                     
-        <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
-        <a href="/book/{{$book->id}}" class="btn btn-secondary">Detalle</a>
-        <div class="down-content">
-          <a href="#"><h4>{{$book->titulo}}</h4></a>
-          <h6>${{$book->precio}}</h6>
-          <p>{{$book->autor}}</p>
-          <p>{{$book->editorial}}</p>
-          <p>{{$book->isbn}}</p>
-          <ul class="stars">
-            <li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-          </ul>
-          <span>Reviews (12)</span>
-        </div>
-      @endforeach
-    </div>  --}}    
+    </div>  
     
     <x-footer-layout>
     </x-footer-layout>

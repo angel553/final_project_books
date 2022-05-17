@@ -12,7 +12,7 @@ class Book extends Model
     use SoftDeletes;
 
     //protected $fillable = ['nombre_original', 'ruta', 'mime'];
-    protected $fillable = ['book_image'];
+    protected $fillable = ['book_image','route_image'];
 
     public function user()
     {

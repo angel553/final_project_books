@@ -20,13 +20,6 @@
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <!--
-
-        TemplateMo 546 Sixteen Clothing
-
-        https://templatemo.com/tm-546-sixteen-clothing
-
-        -->
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css" />
@@ -158,12 +151,6 @@
                 para que los estudiantes puedan vender o intercambiar sus libros que ya no quieren y puedan conseguir nuevos 
                 sin la necesidad de gastar mucho dinero.
               </p>
-              {{-- <ul class="social-icons">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-              </ul> --}}
             </div>
           </div>
         </div>

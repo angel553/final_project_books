@@ -18,13 +18,7 @@
         <title>Buscabucky</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        
-        <!-- TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />                
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="/assets/css/fontawesome.css" />
@@ -243,32 +237,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                   </div>                                  
-
-                                  {{-- <div class="col-md-4">
-                                    <label>Image</label>
-                                  </div>
-                                  <div class="col-md-8 form-group">
-                                    <input type="image" name="" id="">                                    
-                                  </div> --}}
-                                  {{-- <div class="col-12 col-md-8 offset-md-4 form-group">
-                                  <div class="input-group mb-3">
-                                      <select class="form-select" id="inputGroupSelect01">
-                                          <option selected>Choose...</option>
-                                          <option value="1">Venta</option>
-                                          <option value="2">Intercambio</option>                                            
-                                      </select>
-                                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                                  </div> 
-                                  </div> --}}
-                                  {{-- <div class="col-12 col-md-8 offset-md-4 form-group">
-                                      <div class='form-check'>
-                                          <div class="checkbox">
-                                              <input type="checkbox" id="checkbox1" class='form-check-input'
-                                                  checked>
-                                              <label for="checkbox1">Remember Me</label>
-                                          </div>
-                                      </div>
-                                  </div> --}}
+                                  
                                   <div class="col-sm-12 d-flex justify-content-end">
                                       @isset($book)
                                       @else

@@ -18,13 +18,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/assets/css/fontawesome.css">
@@ -241,27 +234,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                             </div>
                           </div>                              
                         </div>
-                      </div>                        
-                        {{-- <a href="#"></a>
-                        <h4><b>{{$book->titulo}}</b></h4>
-                        <h6><strong>${{$book->precio}}</strong></h6>
-                        <p><b>Autor: </b>{{$book->autor}}</p>
-                        <p><b>Editorial: </b>{{$book->editorial}}</p>
-                        <p><b>ISBN: </b>{{$book->isbn}}</p>
-                        <p><b>Páginas: </b>{{$book->paginas}}</p>
-                        <p><b>Fecha: </b>{{$book->fecha}}</p>
-                        <p><b>Disponibilidad: </b>
-                          @foreach ($book->tags as $tag)                                        
-                            {{ $tag->tag }} 
-                          @endforeach
-                        </p>
-                        <p><b>Vendedor: </b>{{$book->user->name}}</p>                                                                        
-
-                        @if ($tag->tag == "No disponible")
-                          <a href="/book/{{$book->id}}" class="btn btn-success disabled">Contactar vendedor</a>                            
-                        @else
-                          <a href="/book/{{$book->id}}" class="btn btn-success">Contactar vendedor</a>                                                        
-                        @endif --}}                                               
+                      </div>                                                                                               
                     </div>
                   </div>                  
                 </div>

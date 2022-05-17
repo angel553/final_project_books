@@ -40,7 +40,7 @@ class ContactController extends Controller
 
         //dd($email);
 
-        //Mail::to('contacus@example.com')->send($email);
+        Mail::to('contacus@example.com')->send($email);
         
         return redirect('/contactus')->with('info','Mensaje Enviado');
     }
