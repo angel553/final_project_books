@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class BookController extends Controller
 {
@@ -20,7 +21,9 @@ class BookController extends Controller
         //$books = Book::all();
         $books = Book::with('user','tags')->latest()->take(6)->get();
         //dd($books);
-        $tags = Tag::all();          
+        $tags = Tag::all();  
+        
+        //dd(Auth::User()->tipo);
         
 //        Session::flash('message','Your message');
 
@@ -34,6 +37,9 @@ class BookController extends Controller
      */
     public function create()
     {
+        if (Gate::allows('admin-actions')) {
+            abort(403);
+        }
         $tags = Tag::all();
         return view('books.createBook', compact('tags'));
     }
@@ -171,7 +177,11 @@ class BookController extends Controller
         
         $book->tags()->sync($request->etiqueta_id);
 
-        return redirect('/myproducts')->with('success','Producto Actualizado');
+        if(Auth::User()->tipo == 'Administrador'){
+            return redirect('/booksadmin')->with('success','Producto Actualizado');            
+        }else{
+            return redirect('/myproducts')->with('success','Producto Actualizado');
+        }
         //return redirect('/libro/' . $libro->id);
     }
 
@@ -183,6 +193,10 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if (! Gate::allows('admin-actions')) {
+            abort(403);
+        }
+
         $url = str_replace('storage','public',$book->route_image);
         //dd($url);
         Storage::delete($url);        
@@ -235,11 +249,12 @@ class BookController extends Controller
      */
     public function showBooksAdmin()
     {        
-        
+        if (! Gate::allows('admin-actions')) {
+            abort(403);
+        }
+
         $books = Book::with('user','tags')->get();
-        $tags = Tag::with('books')->get();
-        
-        //$this->authorize('viewAny');
+        $tags = Tag::with('books')->get();                
 
         return view('admin.booksAdmin', compact('books'));
     }

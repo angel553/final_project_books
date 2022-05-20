@@ -21,8 +21,6 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            //'user_id' => factory(App\User::class);
-            'user_id' => User::factory(),
             'titulo' => $this->faker->sentence(2),
             'autor' => $this->faker->name(),
             'editorial' => $this->faker->sentence(2),

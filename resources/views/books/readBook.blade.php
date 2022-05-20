@@ -176,7 +176,7 @@
                                       <div class="col-md-4">
                                         <label>Para</label>
                                       </div>
-                                      <input name="email2" type="text" class="form-control" id="email2" Value="{{$book->user->email}}" disabled>
+                                      <input name="email2" type="text" class="form-control" id="email2" Value="{{$book->user->email}}">
                                       @error('email2')
                                         <div class="alert alert-danger">{{ $message }}</div>                                                                                          
                                       @enderror
@@ -185,7 +185,8 @@
                                       <div class="col-md-4">
                                         <label>Nombre</label>
                                       </div>
-                                      <input name="name" type="text" class="form-control" id="name" placeholder="Nombre completo" required="">
+                                      <input name="name" type="text" class="form-control" id="name" placeholder="Nombre completo" required=""
+                                      value="{{Auth::User()->name}}">
                                       @error('name')
                                         <div class="alert alert-danger">{{ $message }}</div>                                                                                          
                                       @enderror
@@ -196,7 +197,9 @@
                                       <div class="col-md-4">
                                         <label>Correo</label>
                                       </div>
-                                      <input name="email" type="text" class="form-control" id="email" placeholder="Dirección de correo electrónico" required="">
+                                      <input name="email" type="text" class="form-control" id="email" placeholder="Dirección de correo electrónico" required=""
+                                      value="{{Auth::User()->email}}">
+
                                       @error('email')
                                         <div class="alert alert-danger">{{ $message }}</div>                                                                                          
                                       @enderror
@@ -207,7 +210,8 @@
                                       <div class="col-md-4">
                                         <label>Asunto</label>
                                       </div>
-                                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Asunto" required="">
+                                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Asunto" required=""
+                                      value="Me interesa el producto">
                                       @error('subject')
                                         <div class="alert alert-danger">{{ $message }}</div>                                                                                          
                                       @enderror

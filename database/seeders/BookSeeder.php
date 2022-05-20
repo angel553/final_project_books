@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,10 +16,10 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        Book::factory()->times(2)->create(); 
-        
-        //Book::factory()->hastags(1, ['tag_id' => '1'])->create();
-        
-        /* $tags = App\Tag::all();*/        
+        $user = User::find(2);
+        Book::factory(2)->create([
+            'user_id' => $user->id
+        ]); 
+                       
     }
 }

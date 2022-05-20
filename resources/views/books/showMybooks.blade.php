@@ -161,7 +161,7 @@
                                           <th>Título</th>
                                           <th>Autor</th>
                                           <th>Editorial</th>
-                                          <th>ISBM</th>
+                                          <th>ISBN</th>
                                           <th>Páginas</th>
                                           <th>Fecha</th>
                                           <th>Precio</th>

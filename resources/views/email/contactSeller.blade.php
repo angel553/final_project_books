@@ -8,7 +8,11 @@
 </head>
 <body>
   
-  <p><strong>Nombre: </strong>{{$contact['name']}}</p>
+  <p>Tu publicación tiene un cliente interesado</p>
+  <br>
+  <p>Datos del cliente: </p>
+  <br><br>
+  <p><strong>Nombre del cliente: </strong>{{$contact['name']}}</p>
   <p><strong>Correo: </strong>{{$contact['email']}}</p>
   <p><strong>Asunto: </strong>{{$contact['subject']}}</p>
   <p><strong>Mensaje: </strong>{{$contact['message']}}</p>

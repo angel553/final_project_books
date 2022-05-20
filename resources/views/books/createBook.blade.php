@@ -13,7 +13,7 @@
             rel="stylesheet"
         />
 
-        <link rel="icon" href="assets/images/book_icon2.png">
+        <link rel="icon" href="/assets/images/book_icon2.png">
 
         <title>Buscabucky</title>
 
@@ -164,7 +164,8 @@
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="number" id="isbn" class="form-control" name="isbn"
-                                          placeholder="ISBN" value="{{ isset($book) ? $book->isbn : '' }}">
+                                          placeholder="ISBN" value="{{ isset($book) ? $book->isbn : '' }}"
+                                          min="0000000000000">
                                       @error('isbn')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -174,7 +175,8 @@
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="number" id="paginas" class="form-control" name="paginas"
-                                          placeholder="Páginas" value={{ isset($book) ? $book->paginas : '' }}>
+                                          placeholder="Páginas" value="{{ isset($book) ? $book->paginas : '' }}"
+                                          min="0" max="9999">
                                       @error('paginas')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -184,7 +186,8 @@
                                   </div>
                                   <div class="col-md-8 form-group">
                                     <input type="date" id="contact-info" class="form-control" name="fecha"
-                                        placeholder="Fecha de publicación" value="{{ isset($book) ? $book->fecha : '' }}">
+                                        placeholder="Fecha de publicación" value="{{ isset($book) ? $book->fecha : '' }}" 
+                                        max="2022-05-20">
                                     @error('fecha')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -194,7 +197,8 @@
                                   </div>
                                   <div class="col-md-8 form-group">
                                     <input type="number" id="contact-info" class="form-control" name="precio"
-                                        placeholder="Precio" value="{{ isset($book) ? $book->precio : '' }}">
+                                        placeholder="Precio" value="{{ isset($book) ? $book->precio : '' }}"
+                                        min="0" max="9999">
                                     @error('precio')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

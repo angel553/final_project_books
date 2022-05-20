@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Mail\ContactMailable;
+use App\Mail\ContactSellerMailable;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -40,7 +41,7 @@ class ContactController extends Controller
 
         //dd($email);
 
-        Mail::to('contacus@example.com')->send($email);
+        Mail::to('contactus@example.com')->send($email);
         
         return redirect('/contactus')->with('info','Mensaje Enviado');
     }
@@ -56,19 +57,21 @@ class ContactController extends Controller
         //dd($request);
 
         $request->validate([
+            'email2' => ['required', 'email'],
             'name' => ['required', 'max:50'],
             'email' => ['required', 'email'],
             'subject' => ['required', 'max:50'],
             'message' => ['required'],            
         ]);                                
         
-        $email = new ContactMailable($request->all());
+        //dd($request);
 
-        //dd($email);
+        $email = new ContactSellerMailable($request->all());
 
-        Mail::to($request->user->email)->send($email);
+        //dd($email->contact['email2']);
+
+        Mail::to($email->contact['email2'])->send($email);
         
         return redirect('/products')->with('info','Mensaje Enviado');
     }
-    
 }
