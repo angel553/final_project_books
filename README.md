@@ -7,9 +7,9 @@ sus libros para vender o intercambiar.
 
 ## Vistas
 
-![página principal](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_1.png)
+![página principal](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_1.PNG)
 
-![página principal 2](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_2.png)
+![página principal 2](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_2.PNG)
 
 ## Instalación
 
