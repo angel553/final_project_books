@@ -11,7 +11,7 @@
 
     <link rel="icon" href="assets/images/book_icon2.png">
     
-    <title>Buscabucky</title>
+    <title>Buckysearch</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -270,6 +270,13 @@
             <div class="section-heading">
               <h2 style="color: red">Todos los productos</h2>              
             </div>
+            {{-- Flash Message --}}    
+            <div class="container">      
+              <div id="col-md-7 offset-3 mt-4">
+                @include('flashMessage')
+                @yield('content')
+              </div>
+            </div> 
           </div>
           @foreach ($books as $book)                                                                     
             <div class="col-md-4">

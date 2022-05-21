@@ -1,64 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center" >Buckysearch</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Resumen
 
-## About Laravel
+El proyecto Buckysearch trata de una página web en la que estudiantes universitarios puedan publicar
+sus libros para vender o intercambiar.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Vistas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![página principal](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_1.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![página principal 2](https://raw.githubusercontent.com/angel553/final_project_books/main/public/assets/images/principal_2.png)
 
-## Learning Laravel
+## Instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Instrucciones para ejecutar el proyecto
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clonar repositorio
 
-## Laravel Sponsors
+    ```sh
+    git clone https://github.com/angel553/final_project_books.git final-books
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Ingresar al directorio donde se clono el proyecto
 
-### Premium Partners
+    ```sh
+    cd final-books
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Instalación de dependencias
 
-## Contributing
+    ```sh
+    composer install
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Copiar el archivo .env.example al archivo .env
+    ```sh
+    cp .env.example .env
+    ```
+1. Generación de la key
 
-## Code of Conduct
+    ```sh
+    php artisan key:generate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Crear base de datos `final_books`
 
-## Security Vulnerabilities
+1. Ingresar al archivo `.env`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    - Modificar los valores de la base de datos (`DB_DATABASE=final_books`, `DB_USERNAME=root`, `DB_PASSWORD=`)
 
-## License
+1. Crear link simbólico
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```sh
+    php artisan storage:link
+    ```
+
+1. Ejecutar migraciones
+    ```
+    php artisan migrate
+    ```
+1. Ejcutar seeder
+
+    ```
+    php artisan db:seed
+    ```
+
+    Este comando crea:
+
+    - 1 usuario (Admininistrador) y otros 10 usuarios (Usuario):
+
+        > email: test@test.com , password: 12345678
+
+        > email: aleatorio , password: password
+
+    - 2 libros que se relacionan con el usuario de id = 2:
+
+        > book->user_id->2, los demás datos del libro son aleatorios
+
+    - 3 etiquetas:
+
+        > Venta, Intercambio y no disponible
+
+    - relación entre etiquetas y libros:
+
+        > Se relacionan las 3 etiquetas a los libros
+
+1. Ejecutar proyecto
+
+    > Iniciar laragon y los servidores de: mysql y apache
+
+1. Ingresar a `final_books.test` en el navegador
+
+    > Verificar que los servicios de laragon esten corriendo.
+
+1. Envío de correos (Contactactános y contactar vendedor)
+
+-   En la página [mailtrap](https://mailtrap.io/)
+-   Iniciar sesión con la cuenta de github, entrar al archivo `.env` y configurarlo de acuerdo a lo que indica en la página mailtrap:
+    -   Una vez configurado en esa página llegarán los correos que se manden desde los formularios.

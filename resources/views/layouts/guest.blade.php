@@ -16,7 +16,7 @@
         <link rel="icon" href="assets/images/book_icon2.png">
 
         {{-- <title>Sixteen Clothing HTML Template</title> --}}
-        <title>Buscabucky</title>
+        <title>Buckysearch</title>
 
         <!-- Bootstrap core CSS -->
         <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,7 +49,7 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="/"
-                        ><h2>Busca <em>Bucky</em></h2></a
+                        ><h2>Bucky <em>Search</em></h2></a
                     >
                     <button
                         class="navbar-toggler"
